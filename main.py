@@ -3,7 +3,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 import util
 
-# a -> imagem, m -> intervalo, x -> variação
 def alter_hue(a, m, x):
     # converte a imagem para o padrão HSV de 16 bits
     imagem_hsv = cv2.cvtColor(a, cv2.COLOR_BGR2HSV).astype(np.uint16)
