@@ -15,10 +15,14 @@ def convert_path(name):
 def plot_results(before, after):
     plt.figure(figsize=((10, 5)))
     plt.subplot(1, 2, 1)
-    # a imagem original estava no padrão BGR
     plt.imshow(cv2.cvtColor(before, cv2.COLOR_BGR2RGB))
     plt.title("antes", fontsize=10)
+    plt.axis('off')  
+
     plt.subplot(1, 2, 2)
     plt.imshow(after)
     plt.title("depois", fontsize=10)
+    plt.axis('off') 
+
     plt.show()
+    os.system("clear")
