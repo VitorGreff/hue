@@ -1,21 +1,19 @@
 import cv2
 import numpy as np
 import util
-import math
 
 def altera_matiz(a, m, x):
     imagem_hsv = cv2.cvtColor(a, cv2.COLOR_BGR2HSV).astype(np.uint16)
-    matiz_max = math.ceil(np.mod((m + x) / 2, 180))
-    matiz_min = math.floor(np.mod((m - x) / 2, 180))
+    matiz_max = int(np.mod((m + x) / 2, 180))
+    matiz_min = int(np.mod((m - x) / 2, 180))
 
-    print(matiz_min, matiz_max)
     if matiz_min < matiz_max:
         imagem_hsv[:, :, 0] = np.where(
             (imagem_hsv[:, :, 0] >= matiz_min) & (imagem_hsv[:, :, 0] <= matiz_max),
             (imagem_hsv[:, :, 0] + 90) % 180,
             imagem_hsv[:, :, 0]
         )
-    elif matiz_min >= matiz_max:
+    elif matiz_min > matiz_max:
         imagem_hsv[:, :, 0] = np.where(
             ((imagem_hsv[:, :, 0] >= matiz_min) & (imagem_hsv[:, :, 0] <= 179)) |
             ((imagem_hsv[:, :, 0] >= 0) & (imagem_hsv[:, :, 0] <= matiz_max)),
@@ -37,8 +35,7 @@ if __name__ == "__main__":
             for imagem in lista:
                 print(imagem)
         elif op == 2:
-            name = str(input("Digite o nome da imagem: ")) + ".png"
-            print(name)
+            name = str(input("Digite o nome da imagem: "))
             if name in lista:
                 m = int(input("Digite um valor para m: "))
                 x = int(input("Digite um valor para x: "))
