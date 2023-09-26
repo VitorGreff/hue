@@ -23,6 +23,8 @@ def plot_results(before, after):
     plt.imshow(after)
     plt.title("depois", fontsize=20)
     plt.axis('off') 
-
     plt.show()
-    os.system("clear")
+    if os.name == "nt":
+        os.system("cls")
+    else:
+        os.system("clear")
