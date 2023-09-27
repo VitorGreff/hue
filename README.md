@@ -9,7 +9,7 @@ It is important to notice that, as we are using cv2 library, the hue is represen
 Upload the image on the "files" folder, after that, run the program as usual:
 
 ```python
-    python3 main.py
+    python3 main.py (or python main.py)
 ```
 
 There will be a menu plotted on the terminal, choose [1] to list all images available, choose [2] to alter the hue of any image inside the files folder and choose [3] to quit.
