@@ -13,16 +13,19 @@ def convert_path(name):
     return os.path.join(caminho_da_pasta, name)
 
 def plot_results(before, after):
-    plt.figure(figsize=((14, 7)))
+    plt.figure(figsize=(12, 6))
+    plt.subplots_adjust(wspace=0.02)
+    
     plt.subplot(1, 2, 1)
     plt.imshow(cv2.cvtColor(before, cv2.COLOR_BGR2RGB))
-    plt.title("antes", fontsize=20)
-    plt.axis('off')  
+    plt.title("Antes", fontsize=20)
+    plt.axis('off')
 
     plt.subplot(1, 2, 2)
     plt.imshow(after)
-    plt.title("depois", fontsize=20)
-    plt.axis('off') 
+    plt.title("Depois", fontsize=20)
+    plt.axis('off')
+
     plt.show()
     if os.name == "nt":
         os.system("cls")
